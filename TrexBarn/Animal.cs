@@ -19,7 +19,7 @@ namespace TrexBarn
         public DateTime BirthTime { get; set; } = DateTime.Now;
         public DateTime NextProductionTime { get; set; } = DateTime.Now;
 
-        // 🎯 Üretim aralığı
+        //  Üretim aralığı
         public int GetProductionInterval()
         {
             if (Age >= 1 && Age < 5) return 10;
@@ -27,19 +27,19 @@ namespace TrexBarn
             return -1;
         }
 
-        // ✅ Üretim yapabilme kontrolü
+        //  Üretim yapabilme kontrolü
         public virtual bool CanProduce()
         {
             return IsAlive && Age >= 1 && Age < 8 && HasFood();
         }
 
-        // ✅ Besin kontrolü (alt sınıflar override edecek)
+        //  Besin kontrolü (alt sınıflar override edecek)
         public virtual bool HasFood()
         {
             return true;
         }
 
-        // 🔁 Yaş hesaplama ve ölüm kontrolü
+        //  Yaş hesaplama ve ölüm kontrolü
         public void UpdateAge()
         {
             int newAge = (int)((DateTime.Now - BirthTime).TotalSeconds / 15);
