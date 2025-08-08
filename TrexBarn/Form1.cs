@@ -17,8 +17,8 @@ namespace TrexBarn
     {
 
 
-        public int StrawAmount = 0;   // İnek samanı
-        public int BaitAmount = 0;    // Tavuk yemi
+        public int StrawAmount = 0;   
+        public int BaitAmount = 0;    
         public int GrassAmount = 0;
 
 
@@ -113,7 +113,7 @@ namespace TrexBarn
             cmbGender.Items.Add("Male");
             cmbGender.Items.Add("Female");
 
-            // Timer ayarları
+           
             milkTimer.Interval = 1000;
             milkTimer.Tick += milkTimer_Tick;
 
@@ -209,7 +209,7 @@ namespace TrexBarn
 
             dataGridView1.DataSource = data;
 
-            // Scroll pozisyonunu geri yükle
+            
             if (dataGridView1.RowCount > scrollPos)
                 dataGridView1.FirstDisplayedScrollingRowIndex = scrollPos;
         }
@@ -342,12 +342,12 @@ namespace TrexBarn
                 }
 
                 if (animal.IsAlive)
-                    animal.UpdateAge(); // ✅ Sadece yaşayanların yaşı artar
+                    animal.UpdateAge(); 
             }
 
 
 
-            // Ölüm sonrası uyarı mesajları (bunlar kalacak 👇)
+            
             if (hasCow && !cowDeadMessageShown && animals.Any(a => a.Species == "Cow") && animals.Where(a => a.Species == "Cow").All(a => !a.IsAlive))
             {
                 cowDeadMessageShown = true;
@@ -383,9 +383,9 @@ namespace TrexBarn
 
         private void btnSellMilk_Click(object sender, EventArgs e)
         {
-            int adet = 1; // varsayılan olarak 1 adet satılacak
+            int adet = 1; 
 
-            // Kullanıcı textbox'a sayı girdiyse onu al
+            
             if (!string.IsNullOrWhiteSpace(txtSellMilk.Text))
             {
                 if (!int.TryParse(txtSellMilk.Text, out adet) || adet <= 0)
@@ -529,7 +529,7 @@ namespace TrexBarn
                 return;
             }
 
-            // Güncelleme kısmı burası:
+            
             StrawAmount += needed;
             cash -= totalCost;
 
